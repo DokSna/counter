@@ -41,9 +41,19 @@ class _CounterWidgetState extends State<CounterWidget> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          IconButton(onPressed: null, icon: Icon(Icons.remove)),
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  _count -= 1;
+                });
+              },
+              icon: Icon(Icons.remove)),
           Text('$_count'),
-          IconButton(onPressed: null, icon: Icon(Icons.add)),
+          IconButton(
+              onPressed: () {
+                setState(() => _count += 1);
+              },
+              icon: Icon(Icons.add)),
         ],
       ),
     );
