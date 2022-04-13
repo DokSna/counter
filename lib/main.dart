@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.indigoAccent,
+        backgroundColor: Colors.indigo[300],
         appBar: AppBar(
           title: Text('Counter'),
           centerTitle: true,
@@ -17,9 +17,11 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Tap "-" to decrement'),
+              Text('Tap "-" to decrement',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
               CounterWidget(),
-              Text('Tap "+" to increment'),
+              Text('Tap "+" to increment',
+                  style: TextStyle(color: Colors.white, fontSize: 16)),
             ],
           ),
         ),
@@ -38,6 +40,17 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   Widget build(BuildContext context) {
     return Container(
+      // alignment: Alignment.center,
+      // color: Colors.indigo[100],
+      // padding: const EdgeInsets.all(16),
+      margin: EdgeInsets.all(5),
+      width: 120.0,
+      height: 50.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        // shape: BoxShape.circle,
+        color: Colors.indigo[50],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -48,7 +61,10 @@ class _CounterWidgetState extends State<CounterWidget> {
                 });
               },
               icon: Icon(Icons.remove)),
-          Text('$_count'),
+          Text(
+            '$_count',
+            style: TextStyle(fontSize: 20),
+          ),
           IconButton(
               onPressed: () {
                 setState(() => _count += 1);
@@ -56,6 +72,9 @@ class _CounterWidgetState extends State<CounterWidget> {
               icon: Icon(Icons.add)),
         ],
       ),
+      // decoration: BoxDecoration(
+      //     // shape: BoxShape.circle
+      //     ),
     );
   }
 }
